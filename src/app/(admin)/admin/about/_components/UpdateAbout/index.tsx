@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { CameraIcon, EditIcon, LoaderIcon, PlusIcon } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import { CameraIcon, EditIcon, LoaderIcon } from "lucide-react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
