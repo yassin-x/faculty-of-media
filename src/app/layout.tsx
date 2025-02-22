@@ -47,7 +47,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.className} transition-colors duration-100 ease-linear`}
+        className={`${roboto.className} transition-colors duration-100 ease-linear overflow-x-hidden`}
       >
         <NextAuthSessionProvider>
           <ThemeProvider>
