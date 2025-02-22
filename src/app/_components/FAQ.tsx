@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-
 import MainHeading from "@/components/MainHeading";
 import { Carousel, Image } from "antd";
+import { motion } from "framer-motion";
 
 type FAQType = {
   id: string;
@@ -44,10 +44,16 @@ export default function FAQ({ data }: { data: FAQType[] }) {
           slidesToShow={slidesToShow}
           slidesToScroll={1}
           pauseOnHover
-          className="w-full h-[300px]"
+          className="w-full min-h-[300px]"
         >
           {data.map((item) => (
-            <div key={item.id} className="w-[300px] h-[300px] px-2">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              key={item.id}
+              className="w-[300px] min-h-[300px] px-2"
+            >
               <div className="flex items-center justify-center gap-4">
                 <div className="bg-card shadow-lg p-4 rounded-lg w-full h-full flex flex-col justify-between">
                   <Image
@@ -65,7 +71,7 @@ export default function FAQ({ data }: { data: FAQType[] }) {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </Carousel>
       </div>

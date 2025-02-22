@@ -5,6 +5,7 @@ import { Pages } from "@/constants/enums";
 import { Image } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
+import { motion } from "framer-motion";
 
 type EventsType = {
   id: string;
@@ -21,7 +22,11 @@ export default function Events({ data }: { data: EventsType[] }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {data.slice(0, 6).map((item) => {
               return (
-                <div
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
                   key={item.id}
                   className="cursor-pointer transition-transform duration-300 hover:scale-105"
                 >
@@ -33,7 +38,7 @@ export default function Events({ data }: { data: EventsType[] }) {
                     preview={{ mask: false }}
                     className="rounded shadow-lg object-cover w-full h-full"
                   />
-                </div>
+                </motion.div>
               );
             })}
           </div>

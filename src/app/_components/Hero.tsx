@@ -3,7 +3,7 @@
 import React from "react";
 import { Carousel } from "antd";
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 type HeroType = {
   id: string;
   image: string;
@@ -11,7 +11,12 @@ type HeroType = {
 
 export default function Hero({ data }: { data: HeroType[] }) {
   return (
-    <section className="w-full overflow-hidden">
+    <motion.section
+      initial={{ x: 300, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="w-full overflow-x-hidden"
+    >
       <Carousel autoplay autoplaySpeed={3000} dots={true} effect="fade">
         {data.map((hero) => (
           <div
@@ -28,6 +33,6 @@ export default function Hero({ data }: { data: HeroType[] }) {
           </div>
         ))}
       </Carousel>
-    </section>
+    </motion.section>
   );
 }

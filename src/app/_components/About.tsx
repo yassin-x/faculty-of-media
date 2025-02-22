@@ -2,6 +2,8 @@
 import MainHeading from "@/components/MainHeading";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
+
 type AboutType = {
   id: string;
   title: string;
@@ -16,7 +18,10 @@ export default function About({ data }: { data: AboutType[] }) {
         <MainHeading title={"About Us"} />
         {data.map((item, index) => {
           return (
-            <div
+            <motion.div
+              initial={{ x: -300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
               key={item.id}
               className={`flex flex-col  md:flex-row items-center justify-center gap-8 md:gap-12 ${
                 index % 2 !== 0 ? "md:flex-row-reverse" : ""
@@ -39,7 +44,7 @@ export default function About({ data }: { data: AboutType[] }) {
                   {item.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>
