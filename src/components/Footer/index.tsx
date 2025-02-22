@@ -39,7 +39,7 @@ export default function Footer() {
   ];
   return (
     <footer className="container">
-      <div className="flex justify-around items-center py-4">
+      <div className="flex flex-col md:flex-row justify-around items-center gap-4 py-4">
         <div className="flex flex-col items-center space-x-4 space-y-2">
           <Image
             src={"/bsu-logo.png"}
@@ -48,7 +48,7 @@ export default function Footer() {
             height={50}
             className="object-cover rounded-full"
           />
-          <h2 className="text-lg text-accent">
+          <h2 className="text-lg text-accent text-center">
             BSU - Faculty Of Media & Communication
           </h2>
         </div>
